@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702474666318",
+    "project_id": "ilogistics-e8c5e",
+    "storage_bucket": "ilogistics-e8c5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702474666318:android:6fbfbe30762c58b1999e1f",
+        "android_client_info": {
+          "package_name": "com.example.i_logistics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702474666318-muh1amnbh92o5ol6he4pbbm7dfph202m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC32654x9vKt69SnYk6qnDwpjz-85BQqNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702474666318-muh1amnbh92o5ol6he4pbbm7dfph202m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

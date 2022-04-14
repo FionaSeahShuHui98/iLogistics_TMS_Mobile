@@ -1,0 +1,22 @@
+[
+  {
+    "serviceid": 6,
+    "servicename": "1 Hour ",
+    "servicepricing": 500.0
+  },
+  {
+    "serviceid": 7,
+    "servicename": "2 Hour ",
+    "servicepricing": 500.0
+  },
+  {
+    "serviceid": 8,
+    "servicename": "4 Hour ",
+    "servicepricing": 500.0
+  },
+  {
+    "serviceid": 9,
+    "servicename": "Same Day",
+    "servicepricing": 500.0
+  }
+]

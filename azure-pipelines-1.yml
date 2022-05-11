@@ -19,3 +19,10 @@ jobs:
       - task: FlutterTest@0
         inputs:
           projectDirectory: '.'
+          
+
+      - task: CmdLine@2
+        displayName: 'Flutter Test'
+        inputs:
+          script: '$./flutter test'
+          workingDirectory: '.'

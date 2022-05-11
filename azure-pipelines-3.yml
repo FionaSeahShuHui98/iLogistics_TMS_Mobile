@@ -23,7 +23,7 @@ jobs:
       inputs:
         apkFiles: '**/*.apk'
         apksign: true
-        apksignerKeystoreFile: key.jks
+        apksignerKeystoreFile: index.jks
         apksignerKeystorePassword: ilog@2021
         apksignerKeystoreAlias: ilog@2021
         apksignerKeyPassword: ilog@2021

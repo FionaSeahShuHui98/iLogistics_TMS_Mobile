@@ -16,7 +16,7 @@ jobs:
     - task: FlutterBuild@0
       inputs:
         target: apk
-        projectDirectory: ilogistics_TMS_mobile
+        projectDirectory: ilogistics_TMS_mobile;
   
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'

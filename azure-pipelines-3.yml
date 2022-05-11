@@ -16,7 +16,7 @@ jobs:
     - task: FlutterBuild@0
       inputs:
         target: apk
-        projectDirectory: $(projectDirectory)
+        projectDirectory: ilogistics_TMS_mobile
   
     - task: AndroidSigning@3
       displayName: 'Signing and aligning APK file(s) **/*.apk'
@@ -24,11 +24,11 @@ jobs:
         apkFiles: '**/*.apk'
         apksign: true
         apksignerKeystoreFile: key.jks
-        apksignerKeystorePassword: $(keypassword)
-        apksignerKeystoreAlias: $(key)
-        apksignerKeyPassword: $(keypassword)
+        apksignerKeystorePassword: ilog@2021
+        apksignerKeystoreAlias: ilog@2021
+        apksignerKeyPassword: ilog@2021
     - task: CopyFiles@2
       inputs:
         contents: '**/*.apk'
-        targetFolder: '$(build.artifactStagingDirectory)'
+        targetFolder: 'ilogistics_TMS_mobile'
     - task: PublishBuildArtifacts@1

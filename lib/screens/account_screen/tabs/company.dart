@@ -45,6 +45,15 @@ class _account_details_companyState extends State<account_details_company> {
                   child: Text(" ${loggedInUser.DOB}"),
                     // child: Text(" null"),
                 ),
+                      Container(
+                padding: EdgeInsets.only(top: 40, left: 160),
+                child: IconButton(
+                  onPressed: () {
+                    // handphone_number(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              )
               ]
           ),
 
@@ -60,6 +69,15 @@ class _account_details_companyState extends State<account_details_company> {
                   child: Text(" ${loggedInUser.role}"),
                     // child: Text(" driver"),
                 ),
+                      Container(
+                padding: EdgeInsets.only(top: 40, left: 160),
+                child: IconButton(
+                  onPressed: () {
+                    // handphone_number(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              )
               ]
           ),
 
@@ -89,6 +107,15 @@ class _account_details_companyState extends State<account_details_company> {
                   padding: EdgeInsets.only(top: 40, left: 30),
                   child: Text(" ${loggedInUser.email}"),
                 ),
+                      Container(
+                padding: EdgeInsets.only(top: 40, left: 160),
+                child: IconButton(
+                  onPressed: () {
+                    // handphone_number(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              )
               ]
           ),
         ],

@@ -24,6 +24,10 @@ class _account_details_personalState extends State<account_details_personal> {
   bool _displayHandphoneNumberNoValid = true;
 
   TextEditingController changePhoneNumberController = TextEditingController();
+   TextEditingController changeDobController = TextEditingController();
+    TextEditingController changeNameController = TextEditingController();
+     TextEditingController changeEmailController = TextEditingController();
+      TextEditingController changeAddressController = TextEditingController();
 
   @override
 
@@ -39,17 +43,151 @@ class _account_details_personalState extends State<account_details_personal> {
     });
   }
 
+    updatePhoneData() {
+    usersRef.doc(user!.uid).update({
+      "phone": changePhoneNumberController.text,
+
+    });
+     
+    SnackBar snackbar = const SnackBar(content: const Text("Profile updated!"));
+    ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+        backgroundColor: Colors.black26,
+        content: const Text('Profile updated '),
+      ),
+    );
+  }
+
+    updateDobData() {
+    usersRef.doc(user!.uid).update({
+
+      "dob":changeDobController.text,
+ 
+    });
+     
+    SnackBar snackbar = const SnackBar(content: const Text("Profile updated!"));
+    ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+        backgroundColor: Colors.black26,
+        content: const Text('Profile updated '),
+      ),
+    );
+  }
+
+    updateNameData() {
+    usersRef.doc(user!.uid).update({
+
+      "name":changeNameController.text,
+    // "vehicleNo": displayVehicleNoController.text
+    });
+     
+    SnackBar snackbar = const SnackBar(content: const Text("Profile updated!"));
+    ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+        backgroundColor: Colors.black26,
+        content: const Text('Profile updated '),
+      ),
+    );
+  }
+
+  updateEmailData() {
+    usersRef.doc(user!.uid).update({
+
+      "email":changeEmailController.text,
+
+    });
+     
+    SnackBar snackbar = const SnackBar(content: const Text("Profile updated!"));
+    ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+        backgroundColor: Colors.black26,
+        content: const Text('Profile updated '),
+      ),
+    );
+  }
+
+    updateAddressData() {
+    usersRef.doc(user!.uid).update({
+      "address":changeAddressController.text     // "vehicleNo": displayVehicleNoController.text
+    });
+     
+    SnackBar snackbar = const SnackBar(content: const Text("Profile updated!"));
+    ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+        backgroundColor: Colors.black26,
+        content: const Text('Profile updated '),
+      ),
+    );
+  }
+
+
+
+
+
   Widget build(BuildContext context) {
-    // Handphone Number
-    handphone_number(BuildContext context) {
+
+
+  handphone_number(BuildContext context) {
+    return showDialog(context: context, builder: (context) {
+      return AlertDialog(
+        title: Text("Update  Number"),
+        content: TextField(
+          decoration: InputDecoration(
+              hintText: "New Number"
+          ),
+          controller: changePhoneNumberController,
+          //keyboardType: TextInputType.phone,
+        ),
+        actions: [
+          ElevatedButton.icon(
+            onPressed: () {Navigator.of(context).pop(context);},
+            icon: Icon(Icons.cancel),
+            label: Text(
+              "Cancel",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+                primary: Color(0xffDC3545),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
+            ),
+          ),
+          ElevatedButton.icon(
+            onPressed: () {updatePhoneData();},
+            icon: Icon(Icons.change_circle_sharp),
+            label: Text(
+              "Confirm",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+                primary: Color(0xff2A4D69),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
+            ),
+          ),
+        ],
+      );
+    });
+  }
+
+
+  name(BuildContext context) {
       return showDialog(context: context, builder: (context) {
         return AlertDialog(
-          title: Text("Update Mobile Number"),
+          title: Text("Update Name"),
           content: TextField(
             decoration: InputDecoration(
-                hintText: "New Handphone Number"
+                hintText: "New Name"
             ),
-            controller: changePhoneNumberController,
+            controller: changeNameController,
             keyboardType: TextInputType.phone,
           ),
           actions: [
@@ -71,7 +209,7 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
             ),
             ElevatedButton.icon(
-              onPressed: () {Navigator.of(context).pop(context);},
+              onPressed: () {updateNameData();},
               icon: Icon(Icons.change_circle_sharp),
               label: Text(
                 "Confirm",
@@ -92,6 +230,59 @@ class _account_details_personalState extends State<account_details_personal> {
       });
     }
 
+      dob(BuildContext context) {
+      return showDialog(context: context, builder: (context) {
+        return AlertDialog(
+          title: Text("Update Date of Birth"),
+          content: TextField(
+            decoration: InputDecoration(
+                hintText: "New Date of Birth"
+            ),
+            controller: changeDobController,
+            keyboardType: TextInputType.phone,
+          ),
+          actions: [
+            ElevatedButton.icon(
+              onPressed: () {   Navigator.of(context).pop(context);},
+              icon: Icon(Icons.cancel),
+              label: Text(
+                "Cancel",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                  primary: Color(0xffDC3545),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
+              ),
+            ),
+            ElevatedButton.icon(
+              onPressed: () { updateDobData();
+             },
+              icon: Icon(Icons.change_circle_sharp),
+              label: Text(
+                "Confirm",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                  primary: Color(0xff2A4D69),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
+              ),
+            ),
+          ],
+        );
+      });
+    }
+    
+
     // Functions - Email
     email(BuildContext context) {
       TextEditingController customController = TextEditingController();
@@ -102,7 +293,7 @@ class _account_details_personalState extends State<account_details_personal> {
             decoration: InputDecoration(
                 hintText: "Email"
             ),
-            controller: customController,
+            controller: changeEmailController,
             //keyboardType: TextInputType.phone,
           ),
           actions: [
@@ -124,7 +315,7 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
             ),
             ElevatedButton.icon(
-              onPressed: () {Navigator.of(context).pop(context);},
+              onPressed: () {updateEmailData();},
               icon: Icon(Icons.change_circle_sharp),
               label: Text(
                 "Confirm",
@@ -155,12 +346,12 @@ class _account_details_personalState extends State<account_details_personal> {
             decoration: InputDecoration(
                 hintText: "Addresd"
             ),
-            controller: customController,
+            controller: changeAddressController,
             //keyboardType: TextInputType.phone,
           ),
           actions: [
             ElevatedButton.icon(
-              onPressed: () {Navigator.of(context).pop(context);},
+              onPressed: () {   Navigator.of(context).pop(context);},
               icon: Icon(Icons.cancel),
               label: Text(
                 "Cancel",
@@ -177,7 +368,7 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
             ),
             ElevatedButton.icon(
-              onPressed: () {Navigator.of(context).pop(context);},
+              onPressed: () {updateAddressData();},
               icon: Icon(Icons.change_circle_sharp),
               label: Text(
                 "Confirm",
@@ -210,8 +401,17 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
               Container(
                 padding: EdgeInsets.only(top: 40, left: 30),
-                child: Text(" ${loggedInUser.name}}"),
+                child: Text(" ${loggedInUser.name}"),
               ),
+                    Container(
+                padding: EdgeInsets.only(top: 40, left: 160),
+                child: IconButton(
+                  onPressed: () {
+                   name(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              )
             ]
         ),
 
@@ -227,6 +427,15 @@ class _account_details_personalState extends State<account_details_personal> {
                 child: Text(" ${loggedInUser.DOB}"),
                 // child: Text(" 2002-06-09"),
               ),
+                     Container(
+                padding: EdgeInsets.only(top: 40, left: 90),
+                child: IconButton(
+                  onPressed: () {
+                    dob(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              )
             ]
         ),
 
@@ -287,6 +496,15 @@ class _account_details_personalState extends State<account_details_personal> {
                 child: Text(" ${loggedInUser.address}"),
                   // child: Text("hwhdwdw"),
               ),
+                    Container(
+                padding: EdgeInsets.only(top: 40, left: 160),
+                child: IconButton(
+                  onPressed: () {
+                   address(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              )
             ]
         ),
 

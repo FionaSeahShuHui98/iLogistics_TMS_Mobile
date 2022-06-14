@@ -4,7 +4,7 @@ String? userid;
   String? name;
     String? vehicleType;
       String? vehicle_license;
-      int? phone;
+      String? phone;
  String? employmentid;
   String? role;
  String? address;

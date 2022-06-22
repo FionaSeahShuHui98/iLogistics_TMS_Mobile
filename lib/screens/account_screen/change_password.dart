@@ -15,6 +15,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
   // Decalration
   var password_lock = false;
+  var password_lock_1=false;
   bool checkCurrentPasswordValid = true;
   var newPassword=" ";
 
@@ -144,22 +145,22 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   child: TextFormField(autofocus: false,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.lock),
-                      suffixIcon: IconButton(
-                        onPressed: (){
-                          setState(() {
-                            password_lock = !password_lock;
-                          });
-                        },
-                        icon: Icon(
-                          password_lock
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: Colors.grey,
+                 obscureText: password_lock_1 ? false : true,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                          onPressed: (){
+                            setState(() {
+                              password_lock_1 = !password_lock_1;
+                            });
+                          },
+                          icon: Icon(
+                            password_lock_1
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.grey,
+                          ),
                         ),
-                      ),
                       labelText: 'New Password',
                       hintText: 'Enter New password',
                       border: OutlineInputBorder(),

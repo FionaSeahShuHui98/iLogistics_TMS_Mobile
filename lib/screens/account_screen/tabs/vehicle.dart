@@ -27,7 +27,7 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
   bool _displayVehicleNoValid = true;
 
   updateVehiclePlate() {
-      usersRef.doc(loggedInUser.userid).update({
+      usersRef.doc(user!.uid).update({
       "vehicleNo" : displayVehicleNoController.text
     });
     SnackBar snackbar = SnackBar(content: Text("Profile updated!"));
@@ -41,8 +41,8 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
   }
 
     updateVehicleType() {
-      usersRef.doc(loggedInUser.userid).update({
-      "vehicleType" : dropdownValue
+      usersRef.doc(user!.uid).update({
+      "vehicleType" : dropdownValue.text
     });
     SnackBar snackbar = SnackBar(content: Text("Profile updated!"));
     ScaffoldMessenger.of(context).showSnackBar(
@@ -57,7 +57,7 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
   // Functions - Vehicle Type
   vehicle_type(BuildContext context) {
 
-    String dropdownValue = 'Van';
+    String dropdownValue = '6 Ton';
 
     return showDialog(context: context, builder: (context) {
       return AlertDialog(
@@ -82,7 +82,7 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
           },
 
           // Drop Down Menu Items
-          items: <String>['Car','3 Ton', '3 Ton TG', '6 Ton', '6 Ton TG', '6 Ton OH','Van',]
+          items: <String>['Car','3 Ton', '3 Ton TG', '6 Ton', '6 Ton TG', '6 Ton OH','Van']
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
@@ -110,7 +110,8 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
             ),
           ),
           ElevatedButton.icon(
-            onPressed: updateVehicleType,//Navigator.of(context).pop(context);},
+            onPressed:() {
+              updateVehicleType();},//Navigator.of(context).pop(context);},
             icon: Icon(Icons.change_circle_sharp),
             label: Text(
               "Confirm",
@@ -215,7 +216,7 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
                   child: Text(" ${loggedInUser.vehicleType}"),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 30, left: 170),
+                  padding: EdgeInsets.only(top: 30, left: 100),
                   child: IconButton(
                     onPressed: () {vehicle_type(context);},
                     icon: Icon(Icons.edit),

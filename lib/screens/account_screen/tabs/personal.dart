@@ -452,7 +452,7 @@ class _account_details_personalState extends State<account_details_personal> {
                   // child: Text("91864138"),
               ),
               Container(
-                padding: EdgeInsets.only(top: 40, left: 160),
+                padding: EdgeInsets.only(top: 40, left: 10),
                 child: IconButton(
                   onPressed: () {
                     handphone_number(context);

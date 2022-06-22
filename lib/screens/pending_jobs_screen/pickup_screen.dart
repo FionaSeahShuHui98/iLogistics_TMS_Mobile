@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:i_logistics/screens/completed_jobs_screen/completed_job_screen.dart';
+import 'package:i_logistics/screens/pending_jobs_screen/signature_pad.dart';
 
 import '../../theme/color.dart';
 import '../../theme/styles.dart';
@@ -49,7 +50,9 @@ class _PickUpScreenState extends State<PickUpScreen> {
             ),
             PickupItem(
               title: 'Signature',
-              buttonFunction: () {},
+                           buttonFunction: () {Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => SignatureScreen()));},
               buttonTitle: 'upload',
             ),
             PickupItem(

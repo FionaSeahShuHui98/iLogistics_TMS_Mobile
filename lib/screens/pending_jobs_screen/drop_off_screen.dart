@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:i_logistics/screens/pending_jobs_screen/signature_pad.dart';
 
 import '../../theme/color.dart';
 import '../../theme/styles.dart';
 import '../../widget/pickup_item.dart';
 import '../completed_jobs_screen/completed_job_screen.dart';
+import '../reset_screen.dart';
 
 class DropOfScreen extends StatefulWidget {
   const DropOfScreen({Key? key}) : super(key: key);
@@ -47,7 +49,9 @@ class _PickUpScreenState extends State<DropOfScreen> {
             const Divider(thickness: 1,color: Colors.black,),
             PickupItem(
               title: 'Signature',
-              buttonFunction: () {},
+              buttonFunction: () {Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => SignatureScreen()));},
               buttonTitle: 'Upload',
             ),
             PickupItem(

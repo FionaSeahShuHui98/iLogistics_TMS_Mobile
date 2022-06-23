@@ -29,6 +29,7 @@ class JobItem extends GetView<SearchController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Checkbox(
+                    activeColor: Color(0xff2A4D69),
                         value: controller.jobsChecked
                             .contains(jobModel.id.toString()),
                         onChanged: (_) {

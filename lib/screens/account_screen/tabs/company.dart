@@ -46,13 +46,8 @@ class _account_details_companyState extends State<account_details_company> {
                     // child: Text(" null"),
                 ),
                       Container(
-                padding: EdgeInsets.only(top: 40, left: 160),
-                child: IconButton(
-                  onPressed: () {
-                    // handphone_number(context);
-                  },
-                  icon: Icon(Icons.edit),
-                ),
+                padding: EdgeInsets.only(top: 40, left: 70),
+
               )
               ]
           ),
@@ -70,13 +65,8 @@ class _account_details_companyState extends State<account_details_company> {
                     // child: Text(" driver"),
                 ),
                       Container(
-                padding: EdgeInsets.only(top: 40, left: 160),
-                child: IconButton(
-                  onPressed: () {
-                    // handphone_number(context);
-                  },
-                  icon: Icon(Icons.edit),
-                ),
+                padding: EdgeInsets.only(top: 40, left: 180),
+
               )
               ]
           ),
@@ -108,13 +98,8 @@ class _account_details_companyState extends State<account_details_company> {
                   child: Text(" ${loggedInUser.email}"),
                 ),
                       Container(
-                padding: EdgeInsets.only(top: 40, left: 160),
-                child: IconButton(
-                  onPressed: () {
-                    // handphone_number(context);
-                  },
-                  icon: Icon(Icons.edit),
-                ),
+                padding: EdgeInsets.only(top: 40, left: 60),
+
               )
               ]
           ),

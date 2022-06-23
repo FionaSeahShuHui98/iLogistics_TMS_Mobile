@@ -22,13 +22,16 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
   final  usersRef = FirebaseFirestore.instance.collection('users');
 
   TextEditingController displayVehicleNoController =TextEditingController();
- TextEditingController dropdownValue = TextEditingController();
+ // TextEditingValue dropdownValue = TextEditingValue();
+// TextEditingController dropdownValue = TextEditingController();
+  String? dropdownValue;
+  final dropdownValueKey = GlobalKey<FormState>();
 
   bool _displayVehicleNoValid = true;
 
   updateVehiclePlate() {
       usersRef.doc(user!.uid).update({
-      "vehicleNo" : displayVehicleNoController.text
+      "vehicle_license" : displayVehicleNoController.text
     });
     SnackBar snackbar = SnackBar(content: Text("Profile updated!"));
     ScaffoldMessenger.of(context).showSnackBar(
@@ -42,7 +45,7 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
 
     updateVehicleType() {
       usersRef.doc(user!.uid).update({
-      "vehicleType" : dropdownValue.text
+      "vehicleType" : dropdownValue.toString()
     });
     SnackBar snackbar = SnackBar(content: Text("Profile updated!"));
     ScaffoldMessenger.of(context).showSnackBar(
@@ -63,10 +66,20 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
       return AlertDialog(
         
         title: Text("Update Vehicle Type"),
+
+
            
-        content: DropdownButton<String>(
-     
+        content:
+        DropdownButton<String>(
+          // Drop Down Menu Items
+          items: <String>['Car','3 Ton', '3 Ton TG', '6 Ton', '6 Ton TG', '6 Ton OH','Van'].map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
           value: dropdownValue,
+
           icon: const Icon(Icons.arrow_downward),
           iconSize: 24,
           elevation: 16,
@@ -75,20 +88,13 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
             height: 2,
             color: Color(0xff2A4D69),
           ),
-          onChanged: (String? items) {
+          onChanged: (String? value) {
             setState(() {
-              dropdownValue = items!;
+              dropdownValue = value!;
             });
           },
 
-          // Drop Down Menu Items
-          items: <String>['Car','3 Ton', '3 Ton TG', '6 Ton', '6 Ton TG', '6 Ton OH','Van']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
+
         ),
 
         actions: [
@@ -216,7 +222,7 @@ class _account_details_vehicleState extends State<account_details_vehicle> {
                   child: Text(" ${loggedInUser.vehicleType}"),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 30, left: 100),
+                  padding: EdgeInsets.only(top: 30, left: 160),
                   child: IconButton(
                     onPressed: () {vehicle_type(context);},
                     icon: Icon(Icons.edit),

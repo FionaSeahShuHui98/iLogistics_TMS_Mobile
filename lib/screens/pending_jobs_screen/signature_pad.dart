@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:i_logistics/screens/pending_jobs_screen/pickup_screen.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 import 'dart:ui' as ui ;
 import 'dart:io';
@@ -14,6 +17,9 @@ import 'package:open_file/open_file.dart';
 import 'package:universal_html/html.dart' show AnchorElement;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:convert';
+
+import '../../theme/color.dart';
+import '../../theme/styles.dart';
 
 // string for displaying the error Message
 String? errorMessage;
@@ -32,6 +38,20 @@ class _SignatureScreenState extends State<SignatureScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+            appBar: AppBar(
+              elevation: 0.0,
+              title: const Text('Signature'),
+              backgroundColor: detailsColor,
+              leading: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Get.back();
+                },
+              ),
+            ),
       body: Center(
           child: Container(
         child:  Column(
@@ -43,37 +63,52 @@ class _SignatureScreenState extends State<SignatureScreen> {
               minimumStrokeWidth: 4.0,
               maximumStrokeWidth: 6.0,
               ),
-              ElevatedButton(onPressed: () async{
-                ui.Image image =
-                await _signaturePadStateKey.currentState!.toImage(
-                  pixelRatio: 2.0
-                );
 
-              final ByteData = 
-              await image.toByteData(format: ui.ImageByteFormat.png);
+          ]
+        ),
 
-              final Uint8List imageBytes = ByteData!.buffer.asUint8List(
-                ByteData.offsetInBytes, ByteData.lengthInBytes
-              );
-
-              if (kIsWeb){
-                AnchorElement(href: 'data:application/octet-stream;charset=utf-16le;base64,${base64.encode(imageBytes)}')
-                ..setAttribute('download', 'Output.png')
-                ..click();
-              }
-              final String path =  (await getApplicationDocumentsDirectory()).path;
-              final String fileName = Platform.isWindows? '$path\\Output.png': '$path/Output.png';
-              final File file = File(fileName);
-              await file.writeAsBytes(imageBytes,flush: true);
-              OpenFile.open(fileName);
-
-              }, child: Text('Save as Image'))]),
-               
         height: 300,
         width: 300,
         ),
+
        
-      )),
+      ),
+            bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          RawMaterialButton(
+              padding:
+              const EdgeInsets.symmetric(horizontal: 70, vertical: 16),
+              fillColor: detailsColor,
+              shape: buttonShape,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const PickUpScreen();
+                }));
+              },
+              child: const Text(
+                'Submit',
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, color: Colors.white),
+              )),
+          RawMaterialButton(
+              padding:
+              const EdgeInsets.symmetric(horizontal: 70, vertical: 16),
+              fillColor: cancelColor,
+              shape: buttonShape,
+              onPressed: () {},
+              child: const Text(
+                'Cancel',
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, color: Colors.white),
+              ))
+        ],
+      ),
+    ),
+        ),
     );
   }
 }

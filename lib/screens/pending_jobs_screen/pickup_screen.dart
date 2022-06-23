@@ -50,10 +50,11 @@ class _PickUpScreenState extends State<PickUpScreen> {
             ),
             PickupItem(
               title: 'Signature',
-                           buttonFunction: () {Navigator.of(context).push(
+                           buttonFunction: ()
+                           {Navigator.of(context).push(
                             MaterialPageRoute(
                                 builder: (context) => SignatureScreen()));},
-              buttonTitle: 'upload',
+              buttonTitle: 'Upload',
             ),
             PickupItem(
               title: 'QR Code',
@@ -68,7 +69,7 @@ class _PickUpScreenState extends State<PickUpScreen> {
             PickupItem(
               title: 'Location Photo',
               buttonFunction: () {},
-              buttonTitle: 'upload',
+              buttonTitle: 'Upload',
             ),
           ],
         ),

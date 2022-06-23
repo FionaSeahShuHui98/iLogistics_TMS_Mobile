@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:i_logistics/model/job.dart';
+import 'package:i_logistics/screens/pending_jobs_screen/drop_off_screen.dart';
+import 'package:i_logistics/screens/pending_jobs_screen/pickup_screen.dart';
+import 'package:i_logistics/screens/pending_jobs_screen/signature_pad.dart';
 
 import 'package:i_logistics/theme/color.dart';
 
@@ -98,9 +101,11 @@ class _JobDetailsState extends State<JobDetails> {
                         horizontal: 40, vertical: 16),
                     fillColor: proceedColor,
                     shape: buttonShape,
-                    onPressed: () {
-                      Get.back();
-                    },
+                    onPressed: ()
+                      {Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => PickUpScreen()));},
+
                     child: const Text(
                       'Pick Up',
                       style: TextStyle(
@@ -111,7 +116,9 @@ class _JobDetailsState extends State<JobDetails> {
                         horizontal: 40, vertical: 16),
                     fillColor: proceedColor,
                     shape: buttonShape,
-                    onPressed: () {},
+                    onPressed: ()  {Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => DropOfScreen()));},
                     child: const Text(
                       'Drop Off',
                       style: TextStyle(

@@ -405,12 +405,7 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
                     Container(
                 padding: EdgeInsets.only(top: 40, left: 160),
-                child: IconButton(
-                  onPressed: () {
-                   name(context);
-                  },
-                  icon: Icon(Icons.edit),
-                ),
+
               )
             ]
         ),
@@ -429,12 +424,7 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
                      Container(
                 padding: EdgeInsets.only(top: 40, left: 90),
-                child: IconButton(
-                  onPressed: () {
-                    dob(context);
-                  },
-                  icon: Icon(Icons.edit),
-                ),
+
               )
             ]
         ),
@@ -452,7 +442,7 @@ class _account_details_personalState extends State<account_details_personal> {
                   // child: Text("91864138"),
               ),
               Container(
-                padding: EdgeInsets.only(top: 40, left: 10),
+                padding: EdgeInsets.only(top: 40, left: 100),
                 child: IconButton(
                   onPressed: () {
                     handphone_number(context);
@@ -476,10 +466,7 @@ class _account_details_personalState extends State<account_details_personal> {
               ),
               Container(
                 padding: EdgeInsets.only(top: 30, left: 20),
-                child: IconButton(
-                  onPressed: () {email(context);},
-                  icon: Icon(Icons.edit),
-                ),
+
               )
             ]
         ),
@@ -497,7 +484,7 @@ class _account_details_personalState extends State<account_details_personal> {
                   // child: Text("hwhdwdw"),
               ),
                     Container(
-                padding: EdgeInsets.only(top: 40, left: 160),
+                padding: EdgeInsets.only(top: 40, left: 100),
                 child: IconButton(
                   onPressed: () {
                    address(context);
